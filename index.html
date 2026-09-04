@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranav Batra — DSi Menu</title>
+  <meta name="description" content="Personal portfolio in the style of the Nintendo DSi menu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dsi">
+
+    <!-- ============================= TOP SCREEN ============================= -->
+    <div class="screen top-screen">
+      <div class="screen-glass top-glass">
+        <div class="top-bar">
+          <button class="ds-back" id="backBtn" hidden>&#9664; Back</button>
+          <div class="top-brand">Pranav Batra <span>&middot; Portfolio</span></div>
+          <div class="top-clock" id="clock">--:--</div>
+        </div>
+
+        <!-- SPLASH (shown while browsing the carousel) -->
+        <div class="splash" id="splash">
+          <div class="splash-icon" id="splashIcon"></div>
+          <h1 class="splash-title" id="splashTitle">About Me</h1>
+          <p class="splash-tag" id="splashTag">Who I am</p>
+          <button class="splash-open" id="openBtn">Open &#9654;</button>
+        </div>
+
+        <!-- CONTENT (shown when an app is opened) -->
+        <div class="content" id="content" hidden>
+
+          <!-- ABOUT -->
+          <section class="app-content" data-app="about" hidden>
+            <h1 class="view-title">About Me</h1>
+            <div class="about-layout">
+              <div class="about-photo">
+                <img src="assets/me.jpg" alt="Pranav Batra"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                <div class="photo-placeholder">
+                  <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="38" r="18"/><path d="M18 86c0-18 14-30 32-30s32 12 32 30z"/></svg>
+                  <span>Add assets/me.jpg</span>
+                </div>
+              </div>
+              <div class="about-text">
+                <p>Hi! I'm <strong>Pranav Batra</strong>, a rising junior at UC Irvine studying Computer Science with a minor in Statistics. I've done lots of work with integrated AI applications, and have been exploring distributed systems on my own time. Scroll through the website for a better look at my experience &amp; personal projects!</p>
+                <p>Outside of coding, you'll find me playing basketball and fervently discussing sports (especially NBA/NFL). I love a good walk/jog as well, especially in California weather. Feel free to reach out and connect!</p>
+                <p class="about-edu"><strong>UC Irvine</strong> · B.S. Computer Science, Minor in Statistics · GPA 3.99/4.00 · Expected June 2027</p>
+                <ul class="chip-list">
+                  <li>Python</li><li>Go</li><li>Java</li><li>TypeScript</li><li>SQL</li>
+                  <li>FastAPI</li><li>gRPC</li><li>AWS</li><li>GCP</li><li>Docker</li>
+                  <li>PostgreSQL</li><li>Redis</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROJECTS -->
+          <section class="app-content" data-app="projects" hidden>
+            <h1 class="view-title">Projects</h1>
+            <div class="card-grid">
+              <article class="proj-card">
+                <div class="proj-head"><h3>Distributed Key-Value Store with Raft</h3><span class="proj-when">Aug 2026 — Present</span></div>
+                <p>A from-scratch Raft consensus implementation — leader election, log replication, and majority-based commit — backing a concurrent in-memory store. Hits ~14&nbsp;ns reads / ~20&nbsp;ns writes with zero heap allocations, and streams live per-key updates over a gRPC Watch RPC at sub-20&micro;s round-trips.</p>
+                <div class="tags"><span>Go</span><span>gRPC</span><span>Protobuf</span><span>Raft</span></div>
+                <a class="proj-link" href="https://github.com/Pranav-Batra" target="_blank" rel="noopener">View on GitHub &#8250;</a>
+              </article>
+              <article class="proj-card">
+                <div class="proj-head"><h3>Search Engine</h3><span class="proj-when">Dec 2025 — Mar 2026</span></div>
+                <p>Custom crawler, parser, and inverted-index pipeline over a 60K+ page corpus. Keeps average query latency under 100&nbsp;ms via binary postings encoding, index compression, and seek-based offsets, with TF-IDF + cosine-similarity ranking boosting relevance 50% over naive matching.</p>
+                <div class="tags"><span>Python</span><span>Information Retrieval</span><span>Systems</span></div>
+                <a class="proj-link" href="https://github.com/Pranav-Batra" target="_blank" rel="noopener">View on GitHub &#8250;</a>
+              </article>
+              <article class="proj-card">
+                <div class="proj-head"><h3>Agonus <span class="group-tag">Group Project</span></h3><span class="proj-when">Sep 2025 — Mar 2026</span></div>
+                <p>A team-built agent-workflow platform. <strong>My contributions:</strong> containerized the services on Google Cloud Run with horizontal autoscaling, sustaining 99.95% uptime under load, and built a Celery/Redis distributed task queue running 10 agent workflows concurrently on a fixed 5-minute schedule.</p>
+                <div class="tags"><span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>Docker</span><span>GCP</span></div>
+                <a class="proj-link" href="https://github.com/Pranav-Batra" target="_blank" rel="noopener">View on GitHub &#8250;</a>
+              </article>
+              <article class="proj-card">
+                <div class="proj-head"><h3>Wordle Duels</h3><span class="proj-when">Aug 2025 — Sep 2025</span></div>
+                <p>Real-time multiplayer Wordle reaching sub-50&nbsp;ms update latency with asynchronous WebSockets and event-driven updates. Maintains consistent state across 50+ concurrent sessions using Redis, resolving synchronization and race conditions.</p>
+                <div class="tags"><span>Python</span><span>Django Channels</span><span>Redis</span><span>WebSockets</span></div>
+                <a class="proj-link" href="https://github.com/Pranav-Batra" target="_blank" rel="noopener">View on GitHub &#8250;</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- EXPERIENCE -->
+          <section class="app-content" data-app="experience" hidden>
+            <h1 class="view-title">Experience</h1>
+            <ol class="timeline">
+              <li>
+                <div class="time-dot"></div>
+                <div class="time-body">
+                  <div class="time-head"><h3>Software Engineering Intern</h3><span class="time-when">Jun 2026 — Aug 2026</span></div>
+                  <div class="time-org">KKR · New York City, NY</div>
+                  <ul class="time-points">
+                    <li>Eliminated 10+ hours of weekly analyst effort with a distributed backend automating OLAP workflows over investment data.</li>
+                    <li>Cut analysis time 30% with a lazy execution engine that compiles chained loads, filters, and joins into one optimized query plan.</li>
+                    <li>Ensured reproducible datasets via a backend-neutral Arrow/Parquet layer with Iceberg versioning and Soda Core checks.</li>
+                    <li>Exposed workflow APIs via an MCP server, letting an LLM agent turn natural-language requests into executable data pipelines.</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="time-dot"></div>
+                <div class="time-body">
+                  <div class="time-head"><h3>Software Engineering Intern</h3><span class="time-when">Apr 2026 — Jun 2026</span></div>
+                  <div class="time-org">Sunstone Management · Irvine, CA</div>
+                  <ul class="time-points">
+                    <li>Served low-latency semantic search over large document corpora via a containerized FastAPI service backed by ChromaDB.</li>
+                    <li>Improved retrieval Recall@K 30% by combining BM25, dense vector search, cross-encoder reranking, and multi-query expansion.</li>
+                    <li>Reduced ingestion runtime 20% by parallelizing document chunking and embedding generation across worker threads.</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="time-dot"></div>
+                <div class="time-body">
+                  <div class="time-head"><h3>Learning Assistant</h3><span class="time-when">Mar 2026 — Jun 2026</span></div>
+                  <div class="time-org">UCI Donald Bren School of ICS · Irvine, CA</div>
+                  <ul class="time-points">
+                    <li>Mentored 50+ students in Python internals: data model, namespaces, recursion, and Big-O analysis.</li>
+                    <li>Led ICS 33 code reviews that surfaced bugs, edge cases, and design flaws before submission.</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="time-dot"></div>
+                <div class="time-body">
+                  <div class="time-head"><h3>Software Engineering Intern</h3><span class="time-when">Jun 2025 — Aug 2025</span></div>
+                  <div class="time-org">Federal Reserve Bank of San Francisco · San Francisco, CA</div>
+                  <ul class="time-points">
+                    <li>Saved 5–10 hours weekly by engineering a fault-tolerant, event-driven pipeline built on S3 triggers and SES.</li>
+                    <li>Automated dataset ingestion, month-over-month metric computation, and report distribution end-to-end.</li>
+                    <li>Powered natural-language querying over structured financial data via a backend service integrating S3 with Amazon Bedrock.</li>
+                    <li>Delivered real-time querying of indexed financial data via a scalable REST API on AWS Lambda and API Gateway.</li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <!-- CONTACT -->
+          <section class="app-content" data-app="contact" hidden>
+            <h1 class="view-title">Contact</h1>
+            <p class="contact-intro">I'm always happy to talk about backend systems, distributed infrastructure, or new opportunities — reach out anytime.</p>
+            <div class="contact-grid">
+              <a class="contact-card" href="mailto:pranav.batra2006@gmail.com">
+                <span class="contact-k">Email</span>
+                <span class="contact-v">pranav.batra2006@gmail.com</span>
+              </a>
+              <a class="contact-card" href="https://github.com/Pranav-Batra" target="_blank" rel="noopener">
+                <span class="contact-k">GitHub</span>
+                <span class="contact-v">@Pranav-Batra</span>
+              </a>
+              <a class="contact-card" href="https://www.linkedin.com/in/pranav-batra-uci/" target="_blank" rel="noopener">
+                <span class="contact-k">LinkedIn</span>
+                <span class="contact-v">/in/pranav-batra-uci</span>
+              </a>
+              <a class="contact-card" href="tel:+15103142936">
+                <span class="contact-k">Phone</span>
+                <span class="contact-v">510-314-2936</span>
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= HINGE ============================= -->
+    <div class="hinge"><span class="hinge-groove"></span></div>
+
+    <!-- ============================= BOTTOM SCREEN ============================= -->
+    <div class="screen bottom-screen">
+      <div class="screen-glass bottom-glass">
+        <div class="menu-hint">Scroll or tap to browse · tap the center app to open</div>
+        <div class="carousel" id="carousel">
+          <button class="app-icon" data-app="about" style="--accent:#4aa3df;">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="36" r="18" fill="#fff"/><path d="M18 84c0-18 14-30 32-30s32 12 32 30z" fill="#fff"/></svg>
+          </button>
+          <button class="app-icon" data-app="projects" style="--accent:#5fb95f;">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M12 30h28l8 10h40a6 6 0 0 1 6 6v34a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6V36a6 6 0 0 1 6-6z" fill="#fff"/></svg>
+          </button>
+          <button class="app-icon" data-app="experience" style="--accent:#f0a52e;">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="34" width="72" height="48" rx="7" fill="#fff"/><path d="M38 34v-8a8 8 0 0 1 8-8h8a8 8 0 0 1 8 8v8" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><rect x="42" y="50" width="16" height="12" rx="3" fill="#f0a52e"/></svg>
+          </button>
+          <button class="app-icon" data-app="contact" style="--accent:#e2607a;">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="26" width="76" height="52" rx="8" fill="#fff"/><path d="M14 32l36 26 36-26" fill="none" stroke="#e2607a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <button class="ds-arrow left" id="arrowLeft" aria-label="Previous app">&#9664;</button>
+        <button class="ds-arrow right" id="arrowRight" aria-label="Next app">&#9654;</button>
+        <div class="carousel-dots" id="dots"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================= DSi STYLUS CURSOR ============================= -->
+  <div class="stylus" id="stylus" aria-hidden="true">
+    <svg viewBox="0 0 100 100" width="48" height="48">
+      <defs>
+        <filter id="styGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#0b1220" flood-opacity="0.35"/>
+        </filter>
+      </defs>
+      <g filter="url(#styGlow)" stroke-linecap="round" stroke-linejoin="round">
+        <!-- barrel -->
+        <line x1="32" y1="32" x2="84" y2="84" stroke="#2b2f36" stroke-width="17"/>
+        <line x1="34" y1="30" x2="82" y2="78" stroke="#4a505a" stroke-width="5"/>
+        <!-- silver ferrule -->
+        <line x1="23" y1="23" x2="36" y2="36" stroke="#c9ced6" stroke-width="15"/>
+        <!-- nib, sharp point at (10,10) = hotspot -->
+        <path d="M10 10 L30 19 L19 30 Z" fill="#33373f" stroke="#1f232a" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sound-hint" id="soundHint">🔊 Click anywhere for sound</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
