@@ -59,6 +59,23 @@ const SFX = (function () {
   };
 })();
 
+/* ---------- THEME (dark mode) ---------- */
+(function theme() {
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const KEY = 'portfolio-theme';
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    // resolve the current effective theme (attribute, else system)
+    const current = root.getAttribute('data-theme')
+      || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    SFX.tap();
+  });
+})();
+
 (function audioUnlock() {
   const hint = document.getElementById('soundHint');
   function go() {
