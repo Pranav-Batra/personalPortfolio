@@ -8,10 +8,11 @@
 
 /* app metadata (order matches the carousel markup) */
 const APPS = [
-  { id: 'about',      name: 'About Me',   tag: 'Who I am',            accent: '#4aa3df' },
-  { id: 'projects',   name: 'Projects',   tag: "Things I've built",   accent: '#5fb95f' },
-  { id: 'experience', name: 'Experience', tag: "Where I've worked",   accent: '#f0a52e' },
-  { id: 'contact',    name: 'Contact',    tag: 'Get in touch',        accent: '#e2607a' },
+  { id: 'about',      name: 'About Me',          tag: 'Who I am',               accent: '#4aa3df' },
+  { id: 'projects',   name: 'Projects',          tag: "Things I've built",      accent: '#5fb95f' },
+  { id: 'building',   name: 'Currently Building', tag: "What I'm working on now", accent: '#8a7ee6' },
+  { id: 'experience', name: 'Experience',        tag: "Where I've worked",      accent: '#f0a52e' },
+  { id: 'contact',    name: 'Contact',           tag: 'Get in touch',           accent: '#e2607a' },
 ];
 
 /* ---------- WEB AUDIO SFX ---------- */

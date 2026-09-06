@@ -319,6 +319,37 @@ html, body {
 .tags span { font-size: 11px; font-weight: 700; color: var(--chip-ink); background: var(--chip-bg); border-radius: 999px; padding: 4px 11px; }
 .proj-link { font-weight: 800; color: var(--vaccent, #5fb95f); text-decoration: none; font-size: 14px; }
 
+/* --- currently building --- */
+.build-status {
+  font-weight: 800;
+  color: var(--vaccent, #8a7ee6);
+  font-size: 13px;
+  background: color-mix(in srgb, var(--vaccent, #8a7ee6) 16%, transparent);
+  border-radius: 999px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+.build-principle {
+  font-size: 14px !important;
+  color: var(--ink);
+  background: var(--chip-bg);
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin: 4px 0 0 !important;
+}
+.build-principle strong { color: var(--head); }
+.build-subhead { font-size: 20px; font-weight: 800; color: var(--head); margin: 26px 0 14px; }
+.build-roadmap .time-when { color: var(--muted-2); }
+.build-roadmap li.current .time-when { color: var(--vaccent, #8a7ee6); }
+.build-roadmap li.current .time-dot { box-shadow: 0 0 0 4px var(--top-2), 0 0 10px 2px var(--vaccent, #8a7ee6); }
+.build-roadmap code, .proj-card code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .92em;
+  background: var(--chip-bg);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
 /* --- experience --- */
 .timeline { list-style: none; margin: 0; padding: 0 0 0 24px; position: relative; }
 .timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 4px; border-radius: 4px; background: var(--card-inset); }
