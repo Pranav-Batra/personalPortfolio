@@ -323,26 +323,13 @@ html, body {
 .build-status {
   font-weight: 800;
   color: var(--vaccent, #8a7ee6);
-  font-size: 13px;
+  font-size: 12px;
   background: color-mix(in srgb, var(--vaccent, #8a7ee6) 16%, transparent);
   border-radius: 999px;
-  padding: 4px 12px;
+  padding: 3px 11px;
   white-space: nowrap;
 }
-.build-principle {
-  font-size: 14px !important;
-  color: var(--ink);
-  background: var(--chip-bg);
-  border-radius: 12px;
-  padding: 12px 15px;
-  margin: 4px 0 0 !important;
-}
-.build-principle strong { color: var(--head); }
-.build-subhead { font-size: 20px; font-weight: 800; color: var(--head); margin: 26px 0 14px; }
-.build-roadmap .time-when { color: var(--muted-2); }
-.build-roadmap li.current .time-when { color: var(--vaccent, #8a7ee6); }
-.build-roadmap li.current .time-dot { box-shadow: 0 0 0 4px var(--top-2), 0 0 10px 2px var(--vaccent, #8a7ee6); }
-.build-roadmap code, .proj-card code {
+.proj-card code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .92em;
   background: var(--chip-bg);

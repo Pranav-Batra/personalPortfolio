@@ -100,75 +100,13 @@
           <!-- CURRENTLY BUILDING -->
           <section class="app-content" data-app="building" hidden>
             <h1 class="view-title">Currently Building</h1>
-            <article class="proj-card build-lead">
-              <div class="proj-head">
-                <h3>Real-Time Payment Fraud Stream Processor</h3>
-                <span class="build-status">In progress · Phase 0</span>
-              </div>
-              <p>A distributed-systems project: a Kafka-based pipeline that ingests a high-volume payment event stream, computes rolling per-user metrics, and fires fraud alerts — built to correctly survive duplicates, bad data, and out-of-order events.</p>
-              <div class="tags"><span>Go</span><span>franz-go</span><span>Apache Kafka (KRaft)</span><span>Redis</span><span>Docker Compose</span></div>
-              <p class="build-principle"><strong>Approach:</strong> build the whole pipeline end-to-end naively first, then layer in correctness one property at a time — learning each piece of theory right before implementing it against running code. Kept deliberately simple on the fraud side; the domain exists to make the <em>systems</em> work legible.</p>
-            </article>
-
-            <h2 class="build-subhead">Roadmap</h2>
-            <ol class="timeline build-roadmap">
-              <li class="current">
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 0 — Foundations</h3><span class="time-when">In progress · ~90%</span></div>
-                  <p>Single-broker KRaft cluster in Docker; one message flowing producer → broker → consumer, with offsets that persist across restarts.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 1 — Payment domain &amp; load generator</h3><span class="time-when">Next</span></div>
-                  <p>A keyed, high-throughput event producer, with knobs (rate, corruption, clock-skew, duplicates) to reproduce every later challenge on demand.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 2 — Naive stateful consumer</h3><span class="time-when">Planned</span></div>
-                  <p>End-to-end happy path: parse events, keep per-user rolling counts in Redis, fire a trivial "≥3 failed payments" alert — then deliberately break it to motivate the next phase.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 3 — Delivery semantics &amp; idempotency</h3><span class="time-when">The core</span></div>
-                  <p>Manual offset commits (at-least-once) plus Lua-atomic dedup on <code>event_id</code> for "effectively-once" processing that survives crashes and duplicate events.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 4 — Poison pills, retries &amp; DLQ</h3><span class="time-when">Planned</span></div>
-                  <p>Route un-parseable messages to a dead-letter queue and split permanent vs. transient failures (retry with backoff) so one bad message never stalls a partition.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 5 — Time, windowing &amp; out-of-order events</h3><span class="time-when">Planned</span></div>
-                  <p>Move from processing-time to event-time windows; handle late/straggler events and reason explicitly about the near-real-time vs. completeness tradeoff.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 6 — Scale &amp; operations</h3><span class="time-when">Planned</span></div>
-                  <p>Run a 3-consumer group over 3 partitions; survive a consumer crash via rebalance with state intact, and track consumer lag as the operational health metric.</p>
-                </div>
-              </li>
-              <li>
-                <div class="time-dot"></div>
-                <div class="time-body">
-                  <div class="time-head"><h3>Phase 7 — Stretch</h3><span class="time-when">Later</span></div>
-                  <p>Kafka exactly-once transactions, local partitioned state via a compacted changelog, Protobuf serialization, and a live metrics dashboard.</p>
-                </div>
-              </li>
-            </ol>
+            <div class="card-grid">
+              <article class="proj-card">
+                <div class="proj-head"><h3>Real-Time Payment Fraud Stream Processor</h3><span class="build-status">In progress</span></div>
+                <p>A distributed-systems project: a Kafka-based pipeline that ingests a high-volume payment event stream, computes rolling per-user metrics, and fires fraud alerts — built to correctly survive duplicates, bad data, and out-of-order events.</p>
+                <div class="tags"><span>Go</span><span>franz-go</span><span>Apache Kafka (KRaft)</span><span>Redis</span><span>Docker Compose</span></div>
+              </article>
+            </div>
           </section>
 
           <!-- EXPERIENCE -->
