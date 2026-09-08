@@ -38,3 +38,6 @@ App names, taglines, and accent colors are defined once in the `APPS` array at t
 
 ## Deploy
 Any static host: GitHub Pages, Netlify, Vercel, Cloudflare Pages — no build step.
+
+# Actual URL
+https://pranav-batra.github.io/personalPortfolio/
