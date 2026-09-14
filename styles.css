@@ -134,6 +134,7 @@ html, body {
 
 /* ---- hinge between the screens ---- */
 .hinge {
+  position: relative;
   height: 26px;
   margin: 9px 40px;
   border-radius: 0 0 10px 10px;
@@ -151,6 +152,36 @@ html, body {
   border-radius: 6px;
   background: linear-gradient(180deg, var(--hinge-groove-1), var(--hinge-groove-2));
 }
+
+/* DSi indicator lights (wireless / recharge / power) */
+.ds-lights {
+  position: absolute;
+  left: clamp(14px, 4vw, 40px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.ds-led {
+  --c: #888;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #1b1f25;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.4), inset 0 1px 2px rgba(0,0,0,.55);
+  transition: background .3s ease, box-shadow .3s ease;
+}
+.ds-led.wireless { --c: #ffce33; }
+.ds-led.charge   { --c: #ff9a2e; }
+.ds-led.power    { --c: #3ea6ff; }
+.ds-led.power.low { --c: #ff4d4d; }
+.ds-led.lit {
+  background: var(--c);
+  box-shadow: 0 0 6px 1px var(--c), inset 0 0 2px rgba(255,255,255,.75);
+}
+@keyframes ledBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .12; } }
+.ds-led.blinking.lit { animation: ledBlink .3s steps(1, end) infinite; }
 
 /* ============================================================
    TOP SCREEN

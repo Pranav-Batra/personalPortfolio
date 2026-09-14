@@ -266,6 +266,51 @@ const SFX = (function () {
   syncSplash();
 })();
 
+/* ---------- DSi INDICATOR LIGHTS ---------- */
+(function dsLights() {
+  const wifi = document.getElementById('ledWireless');
+  const charge = document.getElementById('ledCharge');
+  const power = document.getElementById('ledPower');
+  if (!wifi || !charge || !power) return;
+
+  /* Wireless: yellow when online; brief activity blinks now and then */
+  const updateWifi = () => wifi.classList.toggle('lit', navigator.onLine);
+  updateWifi();
+  addEventListener('online', updateWifi);
+  addEventListener('offline', updateWifi);
+  (function blinkLoop() {
+    setTimeout(() => {
+      if (navigator.onLine) {
+        wifi.classList.add('blinking');
+        setTimeout(() => wifi.classList.remove('blinking'), 400 + Math.random() * 500);
+      }
+      blinkLoop();
+    }, 3500 + Math.random() * 5000);
+  })();
+
+  /* Recharge + power: real device state via the Battery Status API,
+     with a graceful fallback (charge off, power always blue). */
+  function fallback() {
+    charge.classList.remove('lit');   // charging state unknown → blacked out
+    power.classList.add('lit');       // battery → always blue
+    power.classList.remove('low');
+  }
+  if ('getBattery' in navigator) {
+    navigator.getBattery().then((bat) => {
+      function update() {
+        charge.classList.toggle('lit', bat.charging);           // orange while charging
+        power.classList.add('lit');                             // always lit
+        power.classList.toggle('low', !bat.charging && bat.level <= 0.2); // red when low
+      }
+      update();
+      bat.addEventListener('chargingchange', update);
+      bat.addEventListener('levelchange', update);
+    }).catch(fallback);
+  } else {
+    fallback();
+  }
+})();
+
 /* ---------- LIVE CLOCK ---------- */
 (function clock() {
   const el = document.getElementById('clock');
